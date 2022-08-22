@@ -30,11 +30,11 @@ public class PostRepository {
 
     public Post save(Post post) {
         if (post.getId() == 0) {
-            if(count.get() == Long.MAX_VALUE){
+            if (count.get() == Long.MAX_VALUE) {
                 count = new AtomicLong();
             }
             long id = count.incrementAndGet();
-            while (posts.containsKey(id)){
+            while (posts.containsKey(id)) {
                 id = count.incrementAndGet();
             }
             post.setId(id);
